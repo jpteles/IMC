@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" href="imc_icon.png">
+    <title>Calculadora IMC</title>
+</head>
+<body>
+    <script>
+        function calcularimc(){
+            var formulario = document.getElementById("formulario");
+            var kilos = +formulario.quilos.value;
+            var metros = +formulario.metros.value;
+            var centimetros = +formulario.centimetros.value;
+
+
+            var altura = ((metros*100 + centimetros)/100).toFixed(2);
+            var imc =  (kilos / (altura*altura)).toFixed(2);
+
+
+            formulario.IMC.value = imc;
+            };
+    </script>
+    <section>
+        <div class="left">
+            <div class="quadrado">
+                <form id="formulario">
+                    <div class="caixas">
+                        <label for="kilos">Quilos:</label>
+                        <input type="text" name="quilos">
+                    </div>
+                    <div class="caixas">
+                        <label for="metros">Metros:</label>
+                        <input type="text" name="metros">
+                    </div>
+                    <div class="caixas">
+                        <label for="centimetros">Cm:</label>
+                        <input type="text" name="centimetros">
+                    </div>
+                    <div class="caixas">
+                        <label for="imc">IMC:</label>
+                        <input type="text" name="IMC" disabled="disabled" id="resultado">
+                    </div>
+                    <div class="caixas">
+                        <a id="botao" href="#" onClick="calcularimc()">calcular</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="rigth">
+            <div class="quadrado">
+                <div class="infor">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr class="info">
+                                <td class="vermelho">IMC</td>
+                                <td class="vermelho">Classificação</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Abaixo de 18,5</td>
+                                <td>Abaixo do peso</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Entre 18,6 e 24,9</td>
+                                <td>Peso normal</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Entre 25 e 29,9</td>
+                                <td>Sobrepeso</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Entre 30 e 34,9</td>
+                                <td>Obesidade grau 1</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Entre 35 e 39,9</td>
+                                <td>Obesidade grau 2</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Acima de 40</td>
+                                <td>Obesidade grau 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
